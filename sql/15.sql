@@ -7,5 +7,6 @@ FROM category
 JOIN film_category USING (category_id)
 JOIN film using (film_id)
 JOIN language USING (language_id)
+WHERE language.name = 'English'
 GROUP BY category.name
 ORDER BY category.name ASC;

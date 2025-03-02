@@ -4,9 +4,9 @@
  * Use tables payment, rental, inventory, and film. 
  */
 SELECT title, SUM(amount) as "profit"
-FROM film
-JOIN inventory USING (film_id)
-JOIN rental USING (inventory_id)
-JOIN payment USING (customer_id)
+FROM payment
+JOIN rental USING (rental_id)
+JOIN inventory USING (inventory_id)
+JOIN film USING (film_id)
 GROUP By title
 ORDER BY "profit" DESC;
